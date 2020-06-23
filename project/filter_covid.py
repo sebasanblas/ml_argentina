@@ -11,8 +11,6 @@ try:
 
     import pandas as pd
 
-    print("Importado modulos necesarios para filter_covid.py")
-
 except ImportError:
 
     raise ImportError('No se pudieron importar los modulos necesarios!')

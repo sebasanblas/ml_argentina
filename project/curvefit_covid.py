@@ -17,8 +17,6 @@ try:
 
     from sklearn.metrics import r2_score
 
-    print("Importado modulos necesarios para curvefit_covid.py")
-
 except ImportError:
 
     raise ImportError('No se pudieron importar los modulos necesarios!')

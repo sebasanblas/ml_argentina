@@ -11,8 +11,6 @@ try:
 
     import requests
 
-    print("Importado modulos necesarios para update_covid.py")
-
 except ImportError:
 
     raise ImportError('No se pudieron importar los modulos necesarios!')

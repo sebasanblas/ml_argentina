@@ -12,8 +12,6 @@ try:
 
     import matplotlib.pyplot as plt
 
-    print("Importado modulos necesarios para tables_covid.py")
-
 except ImportError:
 
     raise ImportError('No se pudieron importar los modulos necesarios!')

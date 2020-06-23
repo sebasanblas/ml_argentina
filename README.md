@@ -19,7 +19,7 @@ Ejecutar `./ml_argentina.py`
 
 ## Data
 
-Los datos historicos provienen de la página oficial del Ministerio de Salud.
+Los datos históricos provienen de la página oficial del Ministerio de Salud.
 
 ### Descarga y uso de datos
 
@@ -27,6 +27,15 @@ Es posible [__Descargar el CSV de datos históricos Oficiales__](https://sisa.ms
 
 Para poder entender las columnas del archivo .csv, [__ver "campos de este recurso"__](http://datos.salud.gob.ar/dataset/covid-19-casos-registrados-en-la-republica-argentina/archivo/fd657d02-a33a-498b-a91b-2ef1a68b8d16).
 
+## Todo
+
+    * Agregar función independiente para estimar paciente confirmados en determinado
+    día (opción 2).
+    * Agregar función para regresión logística (opción 3).
+    * Corrección de docstrings en funciones.
+    * Completar documentación.
+    * Completar test de funciones.
+----------------------------------------------------------------------------
 ## Licencia
 
 El trabajo se publica bajo licencia  Atribución-NoComercial 4.0 Internacional (CC BY-NC 4.0).
@@ -36,6 +45,6 @@ Ver [Licencia CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legal
 
 Son más que bienvenidas!
 
-Para correcciones de errores, sugerencias o alguna función adicional, por favor contactame a sebastiansanblas@gmail.com o [@sebasanblas1](https://twitter.com/SebaSanBlas1).
+Para correcciones de errores, sugerencias o alguna función adicional, por favor contáctame a sebastiansanblas@gmail.com o [@sebasanblas1](https://twitter.com/SebaSanBlas1).
 
 Gracias.

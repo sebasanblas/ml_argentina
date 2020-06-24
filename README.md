@@ -6,10 +6,12 @@ Script para calcular diferentes modelos de machine learning sobre los casos de C
 
 ## ¿Qué se puede realizar con este script?
 
-1. Visualizar por día los casos positivos en el país o por provincias.
-2. Estimar ecuación que se ajuste a los casos ya confirmados.
-3. Estimación exponencial de casos de forma acumulativa.
-4. Regresión logística (Edad/Sexo)(Probabilidad de fallecimiento) *Próximamente*
+   1)  Graficar casos confirmados de COVID-19 en Argentina, o en provincias.
+
+   2)  Estimar la cantidad de contagios de COVID-19 que habrá en Argentina o en
+    alguna provincia en un día determinado.
+
+   3)  Regresión logística. **Próximamente**
 
 ## ¿Cómo ejecutar?
 

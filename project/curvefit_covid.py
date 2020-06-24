@@ -19,6 +19,12 @@ except ImportError:
 
     raise ImportError('No se pudieron importar los modulos necesarios!')
 
+def func_exp(__x__, __fea__, __feb__):
+
+    '''Función para realizar ajuste de los datos'''
+
+    return __fea__*np.exp(__feb__/__x__)
+
 def curvefit(__c_f__):
     '''
     Función para calcular función que se ajustará a los datos, de forma exponencial.
@@ -35,12 +41,6 @@ def curvefit(__c_f__):
 
     __y__ = np.ravel(__y__)
 
-    def func_exp(__x__, __fea__, __feb__):
-
-        '''Función para realizar ajuste de los datos'''
-
-        return __fea__*np.exp(__feb__/__x__)
-
     __popt__, _ = curve_fit(func_exp, x_curve, __y__)
 
     __a__ = __popt__[0]
@@ -51,4 +51,4 @@ def curvefit(__c_f__):
 
     __r2__ = r2_score(__y__, __y_pred__)
 
-    return x_curve, __y__, __y_pred__, __r2__
+    return x_curve, __y__, __y_pred__, __r2__, __a__, __b__

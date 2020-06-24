@@ -36,7 +36,11 @@ Para poder entender las columnas del archivo .csv, [_ver "campos de este recurso
     * Corrección de docstrings en funciones.
     * Completar documentación.
     * Completar test de funciones.
-----------------------------------------------------------------------------
+##ACLARACIÓN
+
+Este script es totalmente estadístico y carece de carácter médico.
+Los valores ofrecen una estimación de cómo podrían evolucionar los acontecimientos de mantenerse la tendencia actual.
+
 ## Licencia
 
 El trabajo se publica bajo licencia Atribución-NoComercial 4.0 Internacional (CC BY-NC 4.0).

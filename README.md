@@ -31,15 +31,25 @@ Para poder entender las columnas del archivo .csv, [_ver "campos de este recurso
 
 ## Todo
 
-    * Agregar función independiente para estimar la cantidad de contagios confirmados que se registrará en determinado día (opción 2).
+    * Introducir fecha para estimar casos en formato YEAR-MM-DD (opción 2).
     * Agregar función para regresión logística (opción 3).
     * Corrección de docstrings en funciones.
     * Completar documentación.
     * Completar test de funciones.
-##ACLARACIÓN
+
+## Importante
 
 Este script es totalmente estadístico y carece de carácter médico.
 Los valores ofrecen una estimación de cómo podrían evolucionar los acontecimientos de mantenerse la tendencia actual.
+
+Por favor, seguir las recomendaciones básicas para evitar contagios:
+   1) QUÉDATE en casa lo máximo posible.
+   2) MANTÉN el distanciamiento social.
+   3) LÁVATE las manos con frecuencia.
+   4) TOSE o ESTORNUDA en el pliegue del codo.
+   5) LLAMA a los servicios de emergencias si tienes síntomas.
+
+Más información [aquí](https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019/advice-for-public)
 
 ## Licencia
 

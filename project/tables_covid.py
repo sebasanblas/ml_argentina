@@ -41,7 +41,7 @@ def tabla_regresion(__t_r_l_1__, __t_r_l_2__):
 
     __covid_fecha__['Cantidad acumulada'] = __covid_fecha__.Cantidad.cumsum()
 
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(11, 6))
 
     plt.subplot(2, 1, 1)
     plt.plot(__covid_fecha__.index, __covid_fecha__['Cantidad'], 'o-')

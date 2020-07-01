@@ -50,7 +50,9 @@ from project.tables_covid import tabla_regresion
 
 from project.curvefit_covid import curvefit, func_exp
 
-from project.plots_covid import plot_curve_fit_low, plot_curve_fit_high
+from project.plots_covid import plot_curve_fit_low, plot_curve_fit_high, histograma, plot_proba
+
+from project.reglog_covid import reg_log, clf_corregido, prediction
 
 print(__doc__)
 
@@ -188,9 +190,25 @@ Se recomienda no continuar la estimación ya que el modelo no será representati
 
     if __resp__ == "3":
 
-        print('''
-Proximamente
-''')
+        __var_covid_filtrado__ = datos_filtrados()
+
+        ___var_tabla_prov__, __var_provincia__ = datos_filtrados_provincias(__var_covid_filtrado__)
+
+        __tabla__, __x__, __y__ = reg_log(___var_tabla_prov__)
+
+        histograma(__tabla__)
+
+        __clf__ = clf_corregido(__x__, __y__)
+
+        plot_proba(__clf__)
+
+        print("¿Desea predecir probabilidad de fallecimiento?")
+        __resp_3__ = input("[S] ó Enter para salir:")
+
+        if __resp_3__ in ("S", "s"):
+
+            prediction(__clf__)
+
         input("Presionar Enter para continuar...")
 
     if __resp__ in ("info", "i"):

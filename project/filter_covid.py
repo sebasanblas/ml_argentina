@@ -82,7 +82,7 @@ def datos_filtrados_provincias(__d_f_p__):
                                        'Tucumán': 90, 'Tierra del Fuego, \
                                        Antártida e Islas del Atlántico Sur': 94}
 
-        __input_provincia_f__ = int(input("Seleccione provicia por nº INDEC: "))
+        __input_provincia_f__ = int(input("Seleccione Argentina o la provincia según Nº INDEC: "))
 
         if  __input_provincia_f__ in __dictionary_provincia_id__.values():
 
@@ -117,7 +117,8 @@ def provincia_id(__p_id__):
                                    'Mendoza': 50, 'Misiones': 54, 'Neuquén': 58, 'Río Negro': 62,
                                    'Salta': 66, 'San Juan': 70, 'San Luis': 74, 'Santa Cruz': 78,
                                    'Santa Fe': 82, 'Santiago del Estero': 86, 'Tucumán': 90,
-                                   'Tierra del Fuego, Antártida e Islas del Atlántico Sur': 94}
+                                   'Tierra del Fuego, Antártida e Islas del Atlántico Sur': 94,
+                                   'Argentina': 0}
 
     for __provincia__, __id_provincia__ in __dictionary_provincia_id__.items():
 

@@ -42,7 +42,7 @@ Opciones:
 
 #Importando modulos
 
-from project.update_covid import update
+from project.update_covid import update, update_datos, check_update
 
 from project.filter_covid import datos_filtrados, datos_filtrados_provincias, provincia_id
 
@@ -57,6 +57,12 @@ from project.reglog_covid import reg_log, clf_corregido, prediction
 print(__doc__)
 
 update()
+
+try:
+    check_update()
+except OSError:
+    print('Base de datos no encontrada. Se descargará de forma automática')
+    update_datos()
 
 while True:
 
@@ -89,12 +95,12 @@ Elija una opción:
 
         __x_curve__, __y__, __y_pred__, __r2__, __a__, __b__ = curvefit(__tabla__)
 
-        if __r2__ < 0.90:
+        if __r2__ < 0.95:
 
             print('''
 --------------------------------------------------------------------------------
 
-Calidad del modelo por debajo del 90 %
+Calidad del modelo por debajo del 95 %
 
 Se recomienda no continuar la estimación ya que el modelo no será representativo.
 
@@ -115,7 +121,7 @@ Se recomienda no continuar la estimación ya que el modelo no será representati
                 print("")
                 input("Presionar Enter para continuar...")
 
-        if __r2__ >= 0.90:
+        if __r2__ >= 0.95:
 
             print('''
 --------------------------------------------------------------------------------
@@ -140,12 +146,12 @@ Se recomienda no continuar la estimación ya que el modelo no será representati
 
         __x_curve__, __y__, __y_pred__, __r2__, __a__, __b__ = curvefit(__tabla__)
 
-        if __r2__ < 0.90:
+        if __r2__ < 0.95:
 
             print('''
 --------------------------------------------------------------------------------
 
-Calidad del modelo por debajo del 90 %.
+Calidad del modelo por debajo del 95 %.
 
 Se recomienda no continuar la estimación ya que el modelo no será representativo.
 
@@ -170,7 +176,7 @@ Se recomienda no continuar la estimación ya que el modelo no será representati
                 print("")
                 input("Presionar Enter para continuar...")
 
-        if __r2__ >= 0.90:
+        if __r2__ >= 0.95:
 
             print('''
 --------------------------------------------------------------------------------
@@ -196,15 +202,18 @@ Se recomienda no continuar la estimación ya que el modelo no será representati
 
         __tabla__, __x__, __y__ = reg_log(___var_tabla_prov__)
 
-        histograma(__tabla__)
+        __input_provincia__ = provincia_id(__var_provincia__)
+
+        histograma(__tabla__, __input_provincia__)
 
         __clf__ = clf_corregido(__x__, __y__)
 
-        plot_proba(__clf__)
+        plot_proba(__clf__, __input_provincia__)
 
         print("¿Desea predecir probabilidad de fallecimiento?")
+        print('')
         __resp_3__ = input("[S] ó Enter para salir:")
-
+        print('')
         if __resp_3__ in ("S", "s"):
 
             prediction(__clf__)
@@ -241,4 +250,8 @@ Gracias.
 
         break
 
-    print("Opción invalida")
+    print('''
+--------------------------------------------------------------------------------
+
+Opción invalida.
+''')

@@ -56,6 +56,10 @@ def clf_corregido(x_orig, y_orig):
     clf_us = LogisticRegression(random_state=0, class_weight='balanced').fit(x_us, y_us)
     y_clf_us = clf_us.predict(x_orig)
 
+    print('''
+--------------------------------------------------------------------------------
+
+''')
     print(classification_report(y_orig, y_clf_us))
 
     _, recall_corregido, _, _ = score(y_orig, y_clf_us)
@@ -71,13 +75,14 @@ def prediction(clf):
     '''Funcion que se encarga de la predicción de probabilidad de fallecimiento'''
 
     sexo = int(input("Sexo[0:Femenino/1:Masculino]: "))
+    print('')
     edad = int(input("Edad: "))
 
     pred = clf.predict_proba([[sexo, edad]])[0][1]
-
-    print("Probabilidad de fallecimiento para persona de sexo {},\
-          de {} años de edad: {:.2f} %".format(sexo, edad, pred))
-
+    print('')
+    print("Probabilidad de fallecimiento para persona de sexo {}, de {} años de edad: {:.2%}"
+          .format(sexo, edad, pred))
+    print('')
 ##Constantes
 pd.set_option('mode.chained_assignment', None)
 GEN_ = {'M': 1, 'F': 0}

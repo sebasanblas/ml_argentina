@@ -19,11 +19,11 @@ except ImportError:
 def plot_curve_fit_low(x_curve, __y__, __y_pred__, __n_p__):
 
     '''
-    Plot para días vs casos confirmados acumulados con R2 menor que 90%.
+    Plot para días vs casos confirmados acumulados con R2 menor que 95%.
     '''
 
     fig_1 = plt.figure(1, figsize=(11, 6))
-    fig_1.suptitle('Casos confirmados acumulados ' + __n_p__, fontsize=14,
+    fig_1.suptitle('Casos confirmados acumulados en ' + __n_p__, fontsize=14,
                    fontweight='bold')
     ax_1 = fig_1.add_subplot(111)
 
@@ -40,7 +40,7 @@ def plot_curve_fit_low(x_curve, __y__, __y_pred__, __n_p__):
     ax_1.text(0.95, 0.01, 'Autor: Sebastian San Blas - sebastiansanblas@gmail.com',
               verticalalignment='bottom', horizontalalignment='right',
               transform=ax_1.transAxes, color='green', fontsize=8)
-
+    plt.grid(True)
     plt.legend(loc='best')
 
     plt.show()
@@ -48,11 +48,11 @@ def plot_curve_fit_low(x_curve, __y__, __y_pred__, __n_p__):
 def plot_curve_fit_high(x_curve, __y__, __y_pred__, __r2__, __n_p__):
 
     '''
-    Plot para días vs casos confirmados acumulados con R2 mayor o igual que 90%.
+    Plot para días vs casos confirmados acumulados con R2 mayor o igual que 95%.
     '''
 
     fig = plt.figure(1, figsize=(11, 6))
-    fig.suptitle('Casos confirmados acumulados ' + __n_p__, fontsize=14, fontweight='bold')
+    fig.suptitle('Casos confirmados acumulados en ' + __n_p__, fontsize=14, fontweight='bold')
     ax_2 = fig.add_subplot(111)
 
     plt.plot(x_curve, __y__, '*', label='Valores originales')
@@ -68,12 +68,12 @@ def plot_curve_fit_high(x_curve, __y__, __y_pred__, __r2__, __n_p__):
     ax_2.text(0.95, 0.01, 'Autor: Sebastian San Blas - sebastiansanblas@gmail.com',
               verticalalignment='bottom', horizontalalignment='right',
               transform=ax_2.transAxes, color='green', fontsize=8)
-
+    plt.grid(True)
     plt.legend(loc='best')
 
     plt.show()
 
-def histograma(x_hist):
+def histograma(x_hist, name_hist):
     '''
     Histograma de fallecidos según edades.
     '''
@@ -85,7 +85,7 @@ def histograma(x_hist):
 
     sns.kdeplot(hombre['edad'], label="Masculino", color='red')
     sns.kdeplot(mujer['edad'], label="Femenino")
-    plt.title('Histograma: Edad vs Fallecidos')
+    plt.title('Histograma: Edad vs Fallecidos - ' + str(name_hist))
     plt.ylabel('Densidad')
     plt.xlabel('Edad')
     plt.xlim(0, 120)
@@ -93,9 +93,10 @@ def histograma(x_hist):
     plt.text(80, -0.0025, 'Autor: Sebastian San Blas - sebastiansanblas@gmail.com',
              color='green', fontsize=8, bbox=dict(facecolor='green', alpha=0.2))
     plt.tight_layout()
+    plt.grid(True)
     plt.show()
 
-def plot_proba(clf):
+def plot_proba(clf, name_hist):
 
     '''Grafica de probabilidad de fallecimiento en función de las edades y sexo.'''
 
@@ -116,11 +117,12 @@ def plot_proba(clf):
     plt.plot(x_m[:, 1], clf.predict_proba(x_m)[:, 1], label="Masculino", color='red', linewidth=1)
     plt.plot(x_f[:, 1], clf.predict_proba(x_f)[:, 1], label="Femenino", color='blue', linewidth=1)
     plt.axhline(y=0.5, color='black', linestyle='-')
-    plt.title('Probabilidad de fallecimiento')
+    plt.title('Probabilidad de fallecimiento en ' + str(name_hist))
     plt.ylabel('Probabilidad')
     plt.xlabel('Edad')
     plt.xlim(0, 100)
     plt.ylim(0, 1)
+    plt.grid(True)
     plt.legend(loc="center right", fontsize='small')
     plt.text(65, 0.025, 'Autor: Sebastian San Blas - sebastiansanblas@gmail.com',
              color='green', fontsize=8, bbox=dict(facecolor='green', alpha=0.2))

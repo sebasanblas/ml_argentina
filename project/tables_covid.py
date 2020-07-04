@@ -45,17 +45,17 @@ def tabla_regresion(__t_r_l_1__, __t_r_l_2__):
 
     plt.subplot(2, 1, 1)
     plt.plot(__covid_fecha__.index, __covid_fecha__['Cantidad'], 'o-')
-    plt.title('Confirmados diarios - Confirmados acumalativo - '+str(__t_r_l_2__))
-    plt.xlabel('Fecha')
-    plt.ylabel('Confirmados')
+    plt.title('Confirmados en '+str(__t_r_l_2__))
+    #plt.xlabel('Fecha')
+    plt.ylabel('Confirmados diarios')
+    plt.grid(True)
 
     plt.subplot(2, 1, 2)
     plt.plot(__covid_fecha__.index, __covid_fecha__['Cantidad acumulada'], '-')
     plt.xlabel('Fecha')
     plt.ylabel('Confirmados acumulados')
-
+    plt.grid(True)
+    
     plt.show()
-
-    #__covid_fecha__.to_csv('{}.csv'.format(__t_r_l_2__), index=True, header=True)
 
     return __covid_fecha__, __t_r_l_2__

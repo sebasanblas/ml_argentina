@@ -67,3 +67,15 @@ def update_datos_prueba():
             __f__.write(data)
 
     print("Base de datos actualizada.(prueba)")
+
+def check_update():
+    '''
+    Función para comprobar la descarga de la base de datos.
+    '''
+
+    __url_base_covid__ = "https://sisa.msal.gov.ar/datos/descargas/covid-19/files/Covid19Casos.csv"
+
+    __filename__ = __url_base_covid__.split('/')[-1]
+
+    with open("docs/"+__filename__) as __check__:
+        __check__.close()

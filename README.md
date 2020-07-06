@@ -7,17 +7,40 @@ Script para calcular diferentes modelos de machine learning sobre los casos de C
 ## ¿Qué se puede realizar con este script?
 
    1)  Graficar casos confirmados de COVID-19 en Argentina, o en provincias.
+   
+<p align="center">
+  <img align="center" src="screenshots/01.png">
+</p>
 
    2)  Estimar la cantidad de contagios de COVID-19 que habrá en Argentina o en
     alguna provincia en un día determinado.
+    
+<p align="center">
+  <img align="center" src="screenshots/02.png">
+</p>
+<p align="center">
+  <img align="center" src="screenshots/04.png">
+</p>
 
-   3)  Regresión logística. **Próximamente**
+   3)  Regresión logística.
+   
+<p align="center">
+  <img align="center" src="screenshots/03.png">
+</p>
 
 ## ¿Cómo ejecutar?
 
 Dar permisos de ejecución `chmod +x ml_argentina.py`
 
 Ejecutar `./ml_argentina.py`
+
+## Dependencias
+
+Los modulos necesarios se encuentran en el archivo requirements.txt.
+
+Para instalar los módulos, ejecute con permisos el archivo dependencies_covid.py con el comando:
+
+`chmod +x project/dependencies_covid.py`
 
 ## Data
 
@@ -31,11 +54,13 @@ Para poder entender las columnas del archivo .csv, [_ver "campos de este recurso
 
 ## Todo
 
-    * Introducir fecha para estimar casos en formato YEAR-MM-DD (opción 2).
-    * Agregar función para regresión logística (opción 3).
-    * Corrección de docstrings en funciones.
-    * Completar documentación.
-    * Completar test de funciones.
+- [x] Introducir fecha para estimar casos en formato YEAR-MM-DD (opción 2).
+- [x] Agregar función para regresión logística (opción 3).
+- [ ] Mejorar predicción (opción 2).
+- [ ] Mejorar precisión de regresión logística.
+- [ ] Corrección de docstrings en funciones.
+- [ ] Completar documentación.
+- [ ] Completar test de funciones.
 
 ## Importante
 

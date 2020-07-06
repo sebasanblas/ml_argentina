@@ -23,7 +23,8 @@ try:
 
 except ImportError:
 
-    raise ImportError('No se pudieron importar los modulos necesarios!')
+    raise ImportError('No se pudieron importar los modulos necesarios! \
+Ejecute dependencies_covid.py en /project')
 
 def reg_log(tabla):
 
@@ -74,14 +75,32 @@ def prediction(clf):
 
     '''Funcion que se encarga de la predicción de probabilidad de fallecimiento'''
 
-    sexo = int(input("Sexo[0:Femenino/1:Masculino]: "))
+    flag = True
+    while flag:
+        sexo = input("Sexo [F/M]: ")
+        if sexo in ('F', 'f', 'M', 'm'):
+            flag = False
+            if sexo in ('F', 'f'):
+                sexo_int = 0
+            else:
+                sexo_int = 1
+        else:
+            print("Debe ser M o F")
     print('')
-    edad = int(input("Edad: "))
 
-    pred = clf.predict_proba([[sexo, edad]])[0][1]
+    flag = True
+    while flag:
+        edad = input("Edad: ")
+        if edad.isnumeric():
+            flag = False
+            edad = int(edad)
+        else:
+            print("Debe ser un numero entero")
+
+    pred = clf.predict_proba([[sexo_int, edad]])[0][1]
     print('')
     print("Probabilidad de fallecimiento para persona de sexo {}, de {} años de edad: {:.2%}"
-          .format(sexo, edad, pred))
+          .format(sexo.upper(), edad, pred))
     print('')
 ##Constantes
 pd.set_option('mode.chained_assignment', None)

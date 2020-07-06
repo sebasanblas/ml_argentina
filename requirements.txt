@@ -1,0 +1,14 @@
+# -*- coding: utf-8 -*-
+
+###### Requirements without Version Specifiers ######
+tqdm
+requests
+pandas
+matplotlib
+numpy
+imbalanced-learn
+seaborn
+scipy
+#
+###### Requirements with Version Specifiers ######
+scikit-learn >= 0.23.1             # Minimum version

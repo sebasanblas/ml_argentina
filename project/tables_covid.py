@@ -14,7 +14,8 @@ try:
 
 except ImportError:
 
-    raise ImportError('No se pudieron importar los modulos necesarios!')
+    raise ImportError('No se pudieron importar los modulos necesarios! \
+Ejecute dependencies_covid.py en /project')
 
 def tabla_regresion(__t_r_l_1__, __t_r_l_2__):
 
@@ -46,7 +47,6 @@ def tabla_regresion(__t_r_l_1__, __t_r_l_2__):
     plt.subplot(2, 1, 1)
     plt.plot(__covid_fecha__.index, __covid_fecha__['Cantidad'], 'o-')
     plt.title('Confirmados en '+str(__t_r_l_2__))
-    #plt.xlabel('Fecha')
     plt.ylabel('Confirmados diarios')
     plt.grid(True)
 
@@ -55,7 +55,18 @@ def tabla_regresion(__t_r_l_1__, __t_r_l_2__):
     plt.xlabel('Fecha')
     plt.ylabel('Confirmados acumulados')
     plt.grid(True)
-    
+
     plt.show()
 
     return __covid_fecha__, __t_r_l_2__
+
+def fecha_inicial(__t_r_l_1__):
+
+    ''' Función para conseguir la fecha minina del primer confirmado de COVID '''
+
+    __covid_fecha__ = __t_r_l_1__.loc[__t_r_l_1__[
+        'clasificacion_resumen'] == 'Confirmado']
+
+    __covid_fecha__ = __covid_fecha__['fecha_diagnostico']
+
+    return min(__covid_fecha__)

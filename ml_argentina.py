@@ -3,7 +3,7 @@
 '''
 --------------------------------------------------------------------------------
 Machine Learning Argentina
-Versión: 0.1
+Versión: 0.2
 
 Sebastian San Blas
 sebastiansanblas@gmail.com
@@ -42,11 +42,13 @@ Opciones:
 
 #Importando modulos
 
+from datetime import datetime
+
 from project.update_covid import update, update_datos, check_update
 
 from project.filter_covid import datos_filtrados, datos_filtrados_provincias, provincia_id
 
-from project.tables_covid import tabla_regresion
+from project.tables_covid import tabla_regresion, fecha_inicial
 
 from project.curvefit_covid import curvefit, func_exp
 
@@ -144,6 +146,10 @@ Se recomienda no continuar la estimación ya que el modelo no será representati
 
         __tabla__, __name_provincia__ = tabla_regresion(___var_tabla_prov__, __input_provincia__)
 
+        __fecha_init__ = fecha_inicial(___var_tabla_prov__)
+
+        print(__fecha_init__)
+
         __x_curve__, __y__, __y_pred__, __r2__, __a__, __b__ = curvefit(__tabla__)
 
         if __r2__ < 0.95:
@@ -168,11 +174,17 @@ Se recomienda no continuar la estimación ya que el modelo no será representati
 
                 print("R cuadrado: {:.2f}".format(__r2__))
                 print("")
-                X_INPUT = int(input("Fecha(numero): "))
+                YYYY = input('Inserte año (Ej 2020): ')
+                MM = input('Inserte mes (Ej 10): ')
+                DAY = input('Inserte día (Ej 16): ')
+                __fecha_final__ = YYYY +'-'+ MM +'-'+ DAY
+                __fecha_final_datetime__ = datetime.strptime(__fecha_final__, '%Y-%m-%d')
+                X_INPUT = __fecha_final_datetime__ - datetime.strptime(__fecha_init__, '%Y-%m-%d')
+                __x__ = X_INPUT.days
+                Y_INPUT = func_exp(__x__=__x__, __fea__=__a__, __feb__=__b__)
                 print("")
-                Y_INPUT = func_exp(__x__=X_INPUT, __fea__=__a__, __feb__=__b__)
                 print("Estimación de casos acumulados para el día {}: {} personas"
-                      .format(X_INPUT, int(Y_INPUT)))
+                      .format(__fecha_final_datetime__, int(Y_INPUT)))
                 print("")
                 input("Presionar Enter para continuar...")
 
@@ -184,11 +196,17 @@ Se recomienda no continuar la estimación ya que el modelo no será representati
 
             print("R cuadrado: {:.2f}".format(__r2__))
             print("")
-            X_INPUT = int(input("Fecha(numero): "))
+            YYYY = input('Inserte año (Ej 2020): ')
+            MM = input('Inserte mes (Ej 10): ')
+            DAY = input('Inserte día (Ej 16): ')
+            __fecha_final__ = YYYY +'-'+ MM +'-'+ DAY
+            __fecha_final_datetime__ = datetime.strptime(__fecha_final__, '%Y-%m-%d')
+            X_INPUT = __fecha_final_datetime__ - datetime.strptime(__fecha_init__, '%Y-%m-%d')
+            __x__ = X_INPUT.days
+            Y_INPUT = func_exp(__x__=__x__, __fea__=__a__, __feb__=__b__)
             print("")
-            Y_INPUT = func_exp(__x__=X_INPUT, __fea__=__a__, __feb__=__b__)
             print("Estimación de casos acumulados para el día {}: {} personas"
-                  .format(X_INPUT, int(Y_INPUT)))
+                  .format(__fecha_final_datetime__, int(Y_INPUT)))
             print("")
             input("Presionar Enter para continuar...")
 
@@ -205,6 +223,9 @@ Se recomienda no continuar la estimación ya que el modelo no será representati
         __input_provincia__ = provincia_id(__var_provincia__)
 
         histograma(__tabla__, __input_provincia__)
+        print('')
+        print("Se calculará el modelo predictivo, requiere tiempo")
+        input("Presionar Enter para continuar...")
 
         __clf__ = clf_corregido(__x__, __y__)
 

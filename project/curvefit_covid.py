@@ -17,7 +17,8 @@ try:
 
 except ImportError:
 
-    raise ImportError('No se pudieron importar los modulos necesarios!')
+    raise ImportError('No se pudieron importar los modulos necesarios! \
+Ejecute dependencies_covid.py en /project')
 
 def func_exp(__x__, __fea__, __feb__):
 

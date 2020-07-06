@@ -148,8 +148,6 @@ Se recomienda no continuar la estimación ya que el modelo no será representati
 
         __fecha_init__ = fecha_inicial(___var_tabla_prov__)
 
-        print(__fecha_init__)
-
         __x_curve__, __y__, __y_pred__, __r2__, __a__, __b__ = curvefit(__tabla__)
 
         if __r2__ < 0.95:

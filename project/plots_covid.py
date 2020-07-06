@@ -85,7 +85,7 @@ def histograma(x_hist, name_hist):
     plt.figure(1, figsize=(11, 6))
 
     sns.kdeplot(hombre['edad'], label="Masculino", color='red')
-    sns.kdeplot(mujer['edad'], label="Femenino")
+    sns.kdeplot(mujer['edad'], label="Femenino", color='blue')
     plt.title('Histograma: Edad vs Fallecidos - ' + str(name_hist))
     plt.ylabel('Densidad')
     plt.xlabel('Edad')

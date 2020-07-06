@@ -14,7 +14,8 @@ try:
 
 except ImportError:
 
-    raise ImportError('No se pudieron importar los modulos necesarios!')
+    raise ImportError('No se pudieron importar los modulos necesarios! \
+Ejecute dependencies_covid.py en /project')
 
 def plot_curve_fit_low(x_curve, __y__, __y_pred__, __n_p__):
 

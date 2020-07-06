@@ -13,7 +13,8 @@ try:
 
 except ImportError:
 
-    raise ImportError('No se pudieron importar los modulos necesarios!')
+    raise ImportError('No se pudieron importar los modulos necesarios! \
+Ejecute dependencies_covid.py en /project')
 
 def update():
     '''Función para decidir si actualizar la base de datos o no'''

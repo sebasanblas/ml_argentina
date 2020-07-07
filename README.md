@@ -27,6 +27,9 @@ Script para calcular diferentes modelos de machine learning sobre los casos de C
 <p align="center">
   <img align="center" src="screenshots/03.png">
 </p>
+<p align="center">
+  <img align="center" src="screenshots/05.png">
+</p>
 
 ## ¿Cómo ejecutar?
 

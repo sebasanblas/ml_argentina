@@ -173,8 +173,8 @@ Se recomienda no continuar la estimación ya que el modelo no será representati
                 print("R cuadrado: {:.2f}".format(__r2__))
                 print("")
                 YYYY = input('Inserte año (Ej 2020): ')
-                MM = input('Inserte mes (Ej 10): ')
-                DAY = input('Inserte día (Ej 16): ')
+                MM = input('Inserte mes (Ej 08): ')
+                DAY = input('Inserte día (Ej 09): ')
                 __fecha_final__ = YYYY +'-'+ MM +'-'+ DAY
                 __fecha_final_datetime__ = datetime.strptime(__fecha_final__, '%Y-%m-%d')
                 X_INPUT = __fecha_final_datetime__ - datetime.strptime(__fecha_init__, '%Y-%m-%d')
@@ -195,8 +195,8 @@ Se recomienda no continuar la estimación ya que el modelo no será representati
             print("R cuadrado: {:.2f}".format(__r2__))
             print("")
             YYYY = input('Inserte año (Ej 2020): ')
-            MM = input('Inserte mes (Ej 10): ')
-            DAY = input('Inserte día (Ej 16): ')
+            MM = input('Inserte mes (Ej 08): ')
+            DAY = input('Inserte día (Ej 03): ')
             __fecha_final__ = YYYY +'-'+ MM +'-'+ DAY
             __fecha_final_datetime__ = datetime.strptime(__fecha_final__, '%Y-%m-%d')
             X_INPUT = __fecha_final_datetime__ - datetime.strptime(__fecha_init__, '%Y-%m-%d')

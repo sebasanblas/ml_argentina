@@ -24,7 +24,7 @@ def datos_filtrados():
 
     __filename__ = __url_base_covid__.split('/')[-1]
 
-    __covid_archivo_crudo__ = pd.read_csv('docs/'+__filename__, encoding="utf-16", sep=',',
+    __covid_archivo_crudo__ = pd.read_csv('docs/'+__filename__, sep=',',
                                           low_memory=False)
 
     # __filename_test__ = "covid_19_casos.csv"   #Eliminar postprueba
